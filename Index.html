@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Samuel🎂!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1E3A8A;  /* Navy blue */
+      --secondary: #065F46; /* Dark green */
+      --accent: #B45309;   /* Bronze accent */
+      --light: #F8FAFC;    /* Light gray */
+      --dark: #111827;     /* Dark blue-black */
+      --text: #1F2937;     /* Dark gray */
+      --highlight: #9CA3AF; /* Silver/gray highlight */
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      position: relative;
+      z-index: 10;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      animation: fadeIn 1.5s ease;
+    }
+    
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 5rem);
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .name {
+      display: inline-block;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .subtitle {
+      font-size: 1.5rem;
+      color: var(--dark);
+      opacity: 0.9;
+      font-weight: 500;
+    }
+    
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    
+    .photo-card {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      aspect-ratio: 1/1;
+      animation: fadeInUp 1s ease;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .photo-card:nth-child(2) { animation-delay: 0.2s; }
+    .photo-card:nth-child(3) { animation-delay: 0.4s; }
+    .photo-card:nth-child(4) { animation-delay: 0.6s; }
+    
+    .photo-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+    
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .photo-card:hover img {
+      transform: scale(1.05);
+    }
+    
+    .photo-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      padding: 1.5rem 1rem 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .photo-card:hover .photo-caption {
+      opacity: 1;
+    }
+    
+    .message-box {
+      background: white;
+      border-radius: 8px;
+      padding: 3rem 2rem;
+      margin: 3rem auto;
+      max-width: 800px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+      position: relative;
+      text-align: center;
+      animation: fadeIn 2s ease;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .message-box::before {
+      content: '"';
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      color: var(--highlight);
+      position: absolute;
+      top: -2rem;
+      left: 1rem;
+      line-height: 1;
+      opacity: 0.3;
+    }
+    
+    .message {
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      line-height: 1.8;
+      position: relative;
+      z-index: 2;
+      font-weight: 500;
+    }
+    
+    .signature {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-top: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .bubbles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(30, 58, 138, 0.1);
+      border: 1px solid rgba(30, 58, 138, 0.2);
+      animation: float linear infinite;
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 0;
+      }
+    }
+    
+    .btn-music {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+      cursor: pointer;
+      z-index: 100;
+      transition: all 0.3s ease;
+      border: none;
+      font-size: 1.5rem;
+    }
+    
+    .btn-music:hover {
+      transform: scale(1.1);
+      background: var(--secondary);
+      box-shadow: 0 6px 20px rgba(6, 95, 70, 0.4);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text);
+      opacity: 0.8;
+      font-size: 0.9rem;
+      animation: fadeIn 2.5s ease;
+      font-weight: 500;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Birthday wish section */
+    .birthday-wish {
+      text-align: center;
+      margin: 3rem 0;
+    }
+    
+    #wishBtn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(30, 58, 138, 0.3);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    
+    #wishBtn:hover {
+      transform: translateY(-3px);
+      background: var(--secondary);
+      box-shadow: 0 6px 15px rgba(6, 95, 70, 0.4);
+    }
+    
+    .hidden {
+      display: none;
+      margin-top: 2rem;
+      animation: fadeIn 1s ease;
+    }
+    
+    .special-message {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--dark);
+      margin-top: 1.5rem;
+      line-height: 1.6;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .photo-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      
+      .message-box {
+        padding: 2rem 1rem;
+      }
+      
+      .message-box::before {
+        font-size: 5rem;
+        top: -1rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .subtitle {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bubbles" id="bubbles"></div>
+  
+  <div class="container">
+    <header>
+      <h1>Happy Birthday <span class="name">Nicholas</span>! 🎂</h1>
+      <p class="subtitle">Wishing you a year of growth, success, and fulfillment</p>
+    </header>
+    
+    <div class="photo-grid">
+      <div class="photo-card">
+        <img src="n2.jpg" alt=" smiling">
+        <div class="photo-caption">Intelligent</div>
+      </div>
+      <div class="photo-card">
+        <img src="n1.jpg" alt="Samuel laughing">
+        <div class="photo-caption">loving </div>
+      </div>
+      <div class="photo-card">
+        <img src="n1.jpg" alt=" thoughtful">
+        <div class="photo-caption">Focused</div>
+      </div>
+      <div class="photo-card">
+        <img src="n2.jpg" alt="Samuel celebrating">
+        <div class="photo-caption">Legendary</div>
+      </div>
+    </div>
+    
+    <div class="message-box">
+      <p class="message">
+        To one of the most determined individuals I know - your sharp mind, 
+        strong work ethic, and quiet confidence set you apart. 
+        This year will bring new challenges and opportunities, 
+        and I have no doubt you'll conquer them all. 
+        Keep pushing forward - your potential is limitless.
+      </p>
+      <div class="signature">Respectfully</div>
+    </div>
+    
+    <div class="birthday-wish">
+      <button id="wishBtn">Your Special Message</button>
+      <div id="hiddenWish" class="hidden">
+        <p>Nicholas, my wish for you is...</p>
+        <p class="special-message">
+          May this year bring you closer to your dreams than ever before. 
+          May your strength grow with each challenge, 
+          your wisdom deepen with each experience, 
+          and your success multiply with each effort. 
+          Stay true to your path - greatness awaits.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      From your friend, Mary 
+    </footer>
+  </div>
+  
+  <button class="btn-music" id="musicBtn">🎵</button>
+  
+  <audio id="birthdaySong" loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+  
+  <script>
+    // Create bubbles
+    function createBubbles() {
+      const bubblesContainer = document.getElementById('bubbles');
+      const bubbleCount = 20;
+      
+      for (let i = 0; i < bubbleCount; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        
+        // Random size between 10 and 40px
+        const size = Math.random() * 30 + 10;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        
+        // Random position
+        bubble.style.left = `${Math.random() * 100}vw`;
+        
+        // Random animation duration between 15s and 25s
+        const duration = Math.random() * 10 + 15;
+        bubble.style.animationDuration = `${duration}s`;
+        
+        // Random delay
+        bubble.style.animationDelay = `${Math.random() * 15}s`;
+        
+        bubblesContainer.appendChild(bubble);
+      }
+    }
+    
+    // Music player
+    const audio = document.getElementById('birthdaySong');
+    const musicBtn = document.getElementById('musicBtn');
+    let isPlaying = false;
+    
+    musicBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        musicBtn.textContent = '🎵';
+      } else {
+        audio.play();
+        musicBtn.textContent = '🔊';
+      }
+      isPlaying = !isPlaying;
+    });
+    
+    // Initialize
+    window.addEventListener('load', () => {
+      createBubbles();
+      
+      // Animate photo cards sequentially
+      const cards = document.querySelectorAll('.photo-card');
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.2}s`;
+      });
+    });
+    
+    // Make bubbles responsive
+    window.addEventListener('resize', () => {
+      document.getElementById('bubbles').innerHTML = '';
+      createBubbles();
+    });
+    
+    // Special message button
+    document.getElementById('wishBtn').addEventListener('click', function() {
+      this.style.display = 'none';
+      document.getElementById('hiddenWish').classList.remove('hidden');
+      
+      // Add some floating elements when message appears
+      for (let i = 0; i < 10; i++) {
+        createFloatingElement();
+      }
+    });
+    
+    // Create floating elements for special message
+    function createFloatingElement() {
+      const element = document.createElement('div');
+      element.innerHTML = '★';
+      element.style.position = 'absolute';
+      element.style.color = 'var(--accent)';
+      element.style.fontSize = `${Math.random() * 20 + 10}px`;
+      element.style.left = `${Math.random() * 100}vw`;
+      element.style.top = '100vh';
+      element.style.animation = `float-up ${Math.random() * 5 + 5}s linear forwards`;
+      document.body.appendChild(element);
+      
+      setTimeout(() => {
+        element.remove();
+      }, 6000);
+    }
+  </script>
+</body>
+</html>
